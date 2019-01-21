@@ -35,7 +35,7 @@ build:
               echo ${ELASTICSEARCH_PORT_9200_TCP_ADDR}
               echo ${ELASTICSEARCH_PORT_9200_TCP_PORT}
         - bigtruedata/install-node:
-            version: 7.4.0
+            version: 8.9.1
         - script:
             name: Install yarn
             code: |
