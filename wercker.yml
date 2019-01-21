@@ -29,28 +29,8 @@ build:
     # http://devcenter.wercker.com/docs/steps/index.html
     steps:
         - script:
-            name: Install yarn
+            name: ping elasticsearch
             code: |
-              npm install -g yarn
-        - script:
-            name: Wait for MySQL connection
-            code: sleep 5
-        - bundle-install
-        - script:
-            name: env
-            code: env
-        - script:
-            name: NPM packages
-            code: yarn install
-        - script:
-            name: tslint
-            code: yarn lint
-        - script:
-            name: jest
-            code: yarn test
-        - script:
-            name: rubocop
-            code: bundle exec rubocop
-        - script:
-            name: rspec
-            code: bundle exec rspec
+            echo ${ELASTICSEARCH_PORT_9200_TCP_ADDR}
+            echo ${ELASTICSEARCH_PORT_9200_TCP_PORT}
+
