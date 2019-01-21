@@ -40,7 +40,7 @@ build:
         - bundle-install
         - script:
             name: ping
-            code: ping -c 4 $ELASTICSEARCH_PORT_9200_TCP_ADDR
+            code: ping -c 4 ${ELASTICSEARCH_PORT_9200_TCP_ADDR}
         - script:
             name: env
             code: env
