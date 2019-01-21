@@ -51,12 +51,6 @@ build:
               echo ${ELASTICSEARCH_PORT_9200_TCP_PORT}
         - bundle-install
         - script:
-            name: ping elasticsearch2
-            code: |
-              ping  -c 4 ${ELASTICSEARCH_PORT_9200_TCP_ADDR}
-              echo ${ELASTICSEARCH_PORT_9200_TCP_ADDR}
-              echo ${ELASTICSEARCH_PORT_9200_TCP_PORT}
-        - script:
             name: env
             code: env
         - script:
