@@ -31,6 +31,6 @@ build:
         - script:
             name: ping elasticsearch
             code: |
-            echo ${ELASTICSEARCH_PORT_9200_TCP_ADDR}
-            echo ${ELASTICSEARCH_PORT_9200_TCP_PORT}
+                echo ${ELASTICSEARCH_PORT_9200_TCP_ADDR}
+                echo ${ELASTICSEARCH_PORT_9200_TCP_PORT}
 
