@@ -28,8 +28,6 @@ build:
     # Read more about steps on our dev center:
     # http://devcenter.wercker.com/docs/steps/index.html
     steps:
-        - bigtruedata/install-node:
-            version: 8.9.1
         - script:
             name: Install yarn
             code: |
