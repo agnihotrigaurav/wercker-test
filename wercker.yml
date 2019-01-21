@@ -12,7 +12,7 @@ services:
     env:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
       MYSQL_ROOT_PASSWORD: ''
-      MYSQL_DATABASE: myapp_test
+      MYSQL_DATABASE: saishinkan_test
       MYSQL_USER: root
       MYSQL_PASSWORD: ''
   - name: elasticsearch
@@ -28,12 +28,6 @@ build:
     # Read more about steps on our dev center:
     # http://devcenter.wercker.com/docs/steps/index.html
     steps:
-        - script:
-            name: ping elasticsearch
-            code: |
-              ping  -c 4 ${ELASTICSEARCH_PORT_9200_TCP_ADDR}
-              echo ${ELASTICSEARCH_PORT_9200_TCP_ADDR}
-              echo ${ELASTICSEARCH_PORT_9200_TCP_PORT}
         - bigtruedata/install-node:
             version: 8.9.1
         - script:
@@ -43,11 +37,10 @@ build:
         - script:
             name: Wait for MySQL connection
             code: sleep 5
-        -script: 
-            name: ping1
-            code: |
-              ping  -c 4 ${ELASTICSEARCH_PORT_9200_TCP_ADDR}
         - bundle-install
+        - script:
+            name: ping
+            code: ping -c 4 $ELASTICSEARCH_PORT_9200_TCP_ADDR
         - script:
             name: env
             code: env
